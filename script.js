@@ -1,3 +1,10 @@
+for (let i = 0; i < 10; i++) {
+    const numberButton = document.createElement("button");
+    numberButton.innerHTML = i.toString();
+    document.body.appendChild(numberButton);
+}
+
+
 function add() {
     alert("adding");
 }
