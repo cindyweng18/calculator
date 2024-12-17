@@ -4,7 +4,10 @@ for (let i = 0; i < 10; i++) {
     const numberButton = document.createElement("button");
     numberButton.innerHTML = i.toString();
     numberButton.addEventListener("click", function() {
-        alert(i)
+        input = input + i.toString();
+        const display = document.getElementById("display");
+        display.innerHTML = input;
+
     })
     document.body.appendChild(numberButton);
 }
