@@ -34,23 +34,7 @@ function equal() {
     display.innerHTML = result;
 }
 
-
-function add() {
-    input = input + " + ";
-    display.innerHTML = input;
-}
-
-function subtract() {
-    input = input + " - ";
-    display.innerHTML = input;
-}
-
-function multiply() {
-    input = input + " * ";
-    display.innerHTML = input;
-}
-
-function divide() {
-    input = input + " / ";
+function operator(op) {
+    input = input + ` ${op} `;
     display.innerHTML = input;
 }
