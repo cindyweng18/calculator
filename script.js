@@ -9,7 +9,7 @@ for (let i = 0; i < 10; i++) {
         display.innerHTML = input;
 
     })
-    document.body.appendChild(numberButton);
+    document.getElementById('numbers').appendChild(numberButton);
 }
 
 function equal() {

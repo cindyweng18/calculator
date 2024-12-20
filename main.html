@@ -1,16 +1,26 @@
 <!DOCTYPE HTML>
 <html>
+    <head>
+        <link rel="stylesheet" href="style.css" />
+    </head>
 
 <body>
-    <div id="numbers">
-        <p id="display"> </p>
+    <div class="displayContainer">
+        <p class="display"> </p>
     </div>
 
-    <button id="equal" onclick="equal()">=</button>
-    <button id="add" onclick="operator('+')">+</button>
-    <button id="subtract" onclick="operator('-')">-</button>
-    <button id="multiply" onclick="operator('*')">*</button>
-    <button id="divide" onclick="operator('/')">/</button>
+    <div class="signs">
+        <button id="equal" onclick="equal()">=</button>
+        <button id="add" onclick="operator('+')">+</button>
+        <button id="subtract" onclick="operator('-')">-</button>
+        <button id="multiply" onclick="operator('*')">*</button>
+        <button id="divide" onclick="operator('/')">/</button>
+    </div>
+
+    <div class="numbers">
+
+    </div>
+    
 
     <script src="script.js"></script>
 
