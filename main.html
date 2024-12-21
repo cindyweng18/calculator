@@ -1,29 +1,28 @@
 <!DOCTYPE HTML>
 <html>
     <head>
+        <title>Calculator</title>
         <link rel="stylesheet" href="style.css" />
+        <script src="script.js"></script>
     </head>
 
-<body>
-    <div class="displayContainer">
-        <p class="display"> </p>
-    </div>
+    <body>
+        <div class="container">
+            <div class="calculator">
+                <div class="displayContainer">
+                    <p class="display">0</p>
+                </div>
 
-    <div class="signs">
-        <button id="equal" onclick="equal()">=</button>
-        <button id="add" onclick="operator('+')">+</button>
-        <button id="subtract" onclick="operator('-')">-</button>
-        <button id="multiply" onclick="operator('*')">*</button>
-        <button id="divide" onclick="operator('/')">/</button>
-    </div>
+                <div class="signs">
+                    <button id="equal" onclick="equal()">=</button>
+                    <button id="add" onclick="operator('+')">+</button>
+                    <button id="subtract" onclick="operator('-')">-</button>
+                    <button id="multiply" onclick="operator('*')">*</button>
+                    <button id="divide" onclick="operator('/')">/</button>
+                </div>
 
-    <div class="numbers">
-
-    </div>
-    
-
-    <script src="script.js"></script>
-
-</body>
-
+                <div class="numbers"></div>
+            </div>
+        </div>
+    </body>
 </html>
