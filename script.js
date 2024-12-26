@@ -38,3 +38,13 @@ function operator(op) {
     input = input + ` ${op} `;
     display.innerHTML = input;
 }
+
+function decimal() {
+    input = input + ".";
+    display.innerHTML = input;
+}
+
+function clear() {
+    input = "";
+    display.innerHTML = input;
+}
