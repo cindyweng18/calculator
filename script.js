@@ -1,3 +1,8 @@
+// Edge cases:
+// - Multiple operators
+// - When zero is at the front of a number
+// - ESC instead of AC?
+
 let input = "";
 const display = document.getElementById("display");
 
@@ -14,8 +19,8 @@ for (let i = 0; i < 10; i++) {
 
 function equal() {
     const l = input.split(" ");
-    const a = parseInt(l[0]);
-    const b = parseInt(l[2]);
+    const a = parseFloat(l[0]);
+    const b = parseFloat(l[2]);
     let result;
     switch(l[1]) {
         case "+":
@@ -44,7 +49,7 @@ function decimal() {
     display.innerHTML = input;
 }
 
-function clear() {
+function clearInput() {
     input = "";
     display.innerHTML = input;
 }
