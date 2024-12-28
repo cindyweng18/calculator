@@ -45,12 +45,18 @@ body {
 /* Button container styles */
 .keys {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
 }
 
-/* Number buttons */
+/* Numbers keypad in a 3x3 grid */
+.numbers {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 5px;
+  padding: 10px;
+}
+
 .numbers button {
-  flex: 1 1 33.333%;
   padding: 20px;
   font-size: 1.2rem;
   background: #eaeaea;
@@ -64,9 +70,17 @@ body {
   background: #d6d6d6;
 }
 
-/* Operator and equal buttons */
+/* Operator and special buttons */
+.signs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  padding: 10px;
+  justify-content: space-between;
+}
+
 .signs button {
-  flex: 1 1 20%;
+  flex: 1 1 calc(33.333% - 10px);
   padding: 20px;
   font-size: 1.2rem;
   color: #fff;
@@ -74,6 +88,7 @@ body {
   outline: none;
   cursor: pointer;
   transition: background 0.2s;
+  text-align: center;
 }
 
 #equal {
@@ -90,4 +105,20 @@ body {
 
 .operator:hover {
   background: #e67e22;
+}
+
+#decimal {
+  background: #3498db;
+}
+
+#decimal:hover {
+  background: #2980b9;
+}
+
+#clear {
+  background: #e74c3c;
+}
+
+#clear:hover {
+  background: #c0392b;
 }
