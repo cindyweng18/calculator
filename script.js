@@ -50,6 +50,6 @@ function decimal() {
 }
 
 function clearInput() {
-    input = "";
+    input = input.slice(0, -1);
     display.innerHTML = input;
 }
