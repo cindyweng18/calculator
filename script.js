@@ -1,5 +1,5 @@
 // Edge cases:
-// - When zero is at the front of a number
+// - add +/- button
 
 let input = "";
 const display = document.getElementById("display");
@@ -7,12 +7,24 @@ const display = document.getElementById("display");
 for (let i = 0; i < 10; i++) {
     const numberButton = document.createElement("button");
     numberButton.innerHTML = i.toString();
-    numberButton.addEventListener("click", function() {
-        input = input + i.toString();
-        display.innerHTML = input;
+    numberButton.addEventListener("click", function () {
+        appendNumber(i.toString());
+    });
+    document.getElementById("numbers").appendChild(numberButton);
+}
 
-    })
-    document.getElementById('numbers').appendChild(numberButton);
+function appendNumber(num) {
+    const l = input.split(" ");
+    const lastChar = l[l.length - 1];
+
+    if (lastChar === "0" && num !== ".") {
+        l[l.length - 1] = num;
+    } else {
+        l[l.length - 1] += num;
+    }
+
+    input = l.join(" ");
+    display.innerHTML = input;
 }
 
 function equal() {
@@ -34,8 +46,13 @@ function operator(op) {
 }
 
 function decimal() {
-    input = input + ".";
-    display.innerHTML = input;
+    const l = input.split(" ");
+    const lastChar = l[l.length - 1];
+
+    if (!lastChar.includes(".")) {
+        input += ".";
+        display.innerHTML = input;
+    }
 }
 
 function clearInput() {
