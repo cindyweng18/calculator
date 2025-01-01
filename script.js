@@ -1,7 +1,5 @@
 // Edge cases:
-// - Multiple operators
 // - When zero is at the front of a number
-// - ESC instead of AC?
 
 let input = "";
 const display = document.getElementById("display");
@@ -18,30 +16,21 @@ for (let i = 0; i < 10; i++) {
 }
 
 function equal() {
-    const l = input.split(" ");
-    const a = parseFloat(l[0]);
-    const b = parseFloat(l[2]);
-    let result;
-    switch(l[1]) {
-        case "+":
-            result = a + b;
-            break;
-        case "-":
-            result = a - b;
-            break;
-        case "*":
-            result = a * b;
-            break;
-        case "/":
-            result = a / b;
-            break;
+    try {
+        const result = Function(`'use strict'; return (${input})`)();
+        display.innerHTML = result;
+        input = result.toString(); 
+    } catch (error) {
+        display.innerHTML = "Error"; 
+        input = "";
     }
-    display.innerHTML = result;
 }
 
 function operator(op) {
-    input = input + ` ${op} `;
-    display.innerHTML = input;
+    if (input.length > 0 && !isNaN(input.slice(-1))) {
+        input += ` ${op} `;
+        display.innerHTML = input;
+    }
 }
 
 function decimal() {
