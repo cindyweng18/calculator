@@ -1,5 +1,4 @@
-// Edge cases:
-// - add +/- button
+// Script for Calculator
 
 let input = "";
 const display = document.getElementById("display");
@@ -58,4 +57,20 @@ function decimal() {
 function clearInput() {
     input = input.slice(0, -1);
     display.innerHTML = input;
+}
+
+function toggleSign() {
+    const l = input.split(" ");
+    const lastChar = l[l.length - 1];
+
+    if (!isNaN(lastChar) && lastChar !== "") {
+        if (lastChar.startsWith("-")) {
+            l[l.length - 1] = lastChar.slice(1);
+        } else {
+            l[l.length - 1] = `-${lastChar}`;
+        }
+
+        input = l.join(" ");
+        display.innerHTML = input;
+    }
 }
