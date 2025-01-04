@@ -28,9 +28,9 @@ function appendNumber(num) {
 
 function equal() {
     try {
-        const result = Function(`'use strict'; return (${input})`)();
-        display.innerHTML = result;
-        input = result.toString(); 
+        const result = eval(input);
+        input = result.toString();
+        display.innerHTML = input;
     } catch (error) {
         display.innerHTML = "Error"; 
         input = "";
@@ -60,17 +60,11 @@ function clearInput() {
 }
 
 function toggleSign() {
-    const l = input.split(" ");
-    const lastChar = l[l.length - 1];
-
-    if (!isNaN(lastChar) && lastChar !== "") {
-        if (lastChar.startsWith("-")) {
-            l[l.length - 1] = lastChar.slice(1);
-        } else {
-            l[l.length - 1] = `-${lastChar}`;
-        }
-
-        input = l.join(" ");
-        display.innerHTML = input;
+    if (!input) return;
+    if (input.startsWith("-")) {
+        input = input.slice(1);
+    } else if (!isNaN(input)) {
+        input = `-${input}`;
     }
+    display.innerHTML = input;
 }
