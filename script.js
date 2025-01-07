@@ -54,11 +54,31 @@ function decimal() {
     }
 }
 
+let clearTimer;
+
 function clearInput() {
-    input = input.slice(0, -1);
+    if (clearTimer) {
+        input = ""; 
+        clearTimer = null;
+    } else {
+        input = input.slice(0, -1);
+    }
     display.innerHTML = input;
 }
 
+document.getElementById("clear").addEventListener("mousedown", () => {
+    clearTimer = setTimeout(() => {
+        clearInput();
+        clearTimer = null;
+    }, 500); 
+});
+
+document.getElementById("clear").addEventListener("mouseup", () => {
+    if (clearTimer) {
+        clearInput(); 
+        clearTimer = null;
+    }
+});
 function toggleSign() {
     if (!input) return;
     if (input.startsWith("-")) {
