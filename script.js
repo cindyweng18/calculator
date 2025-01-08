@@ -88,3 +88,18 @@ function toggleSign() {
     }
     display.innerHTML = input;
 }
+
+document.addEventListener("keydown", function (event) {
+    if (!isNaN(event.key)) {
+        input += event.key;
+    } else if ("+-*/".includes(event.key)) {
+        operator(event.key);
+    } else if (event.key === "Enter") {
+        equal();
+    } else if (event.key === "Backspace") {
+        input = input.slice(0, -1);
+    } else if (event.key === ".") {
+        decimal();
+    }
+    display.innerHTML = input;
+});
