@@ -30,6 +30,11 @@ function equal() {
     try {
         const result = eval(input);
         input = result.toString();
+        if (input.includes("/") && input.split("/").pop().trim() === "0") {
+            display.innerHTML = "Error: Division by Zero";
+            input = "";
+            return;
+        }
         display.innerHTML = input;
     } catch (error) {
         display.innerHTML = "Error"; 
